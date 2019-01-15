@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WineHouse</title>
+</head>
+<body>
+    <h1>Welcome to Winehouse website.</h1>
+    <table>
+    <thead>
+    <tr><th>Id</th><th>Recipe</th></tr>
+    </thead>
+        <for(recipe in data.recipes)>
+            <tbody>
+                <tr><td>${recipe.id}</td><td>${recipe.name}</td></tr>
+            </tbody>
+        </for>
+    </table>
+</body>
+</html>
