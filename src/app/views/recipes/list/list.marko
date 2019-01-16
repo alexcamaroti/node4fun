@@ -8,15 +8,29 @@
 </head>
 <body>
     <h1>Welcome to Winehouse website.</h1>
-    <table>
+    <table id="tbRecipe">
     <thead>
-    <tr><th>Id</th><th>Recipe</th></tr>
+    <tr>
+        <th>Id</th>
+        <th>Recipe</th>
+        <th>Price</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
     </thead>
         <for(recipe in data.recipes)>
             <tbody>
-                <tr><td>${recipe.id}</td><td>${recipe.name}</td></tr>
+                <tr>
+                <td>${recipe.id}</td>
+                <td>${recipe.name}</td>
+                <td>${recipe.price}</td>
+                <td><a href="#" data-href="${recipe.id}">Edit</a></td>
+                <td><a href="#" data-href="${recipe.id}" data-type="remove">Delete</a></td>
+                </tr>
             </tbody>
         </for>
     </table>
+
+    <script src="./remove-recipe.js"></script>
 </body>
 </html>
