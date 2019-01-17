@@ -20,7 +20,7 @@
     </thead>
         <for(recipe in data.recipes)>
             <tbody>
-                <tr>
+                <tr id="recipe_${recipe.id}">
                 <td>${recipe.id}</td>
                 <td>${recipe.name}</td>
                 <td>${recipe.price}</td>
@@ -31,6 +31,6 @@
         </for>
     </table>
 
-    <script src="./remove-recipe.js"></script>
+    <script src="/static/js/remove-recipe.js"></script>
 </body>
 </html>
