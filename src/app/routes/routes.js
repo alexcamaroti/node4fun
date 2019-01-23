@@ -24,4 +24,11 @@ app.post("/recipes", function(req, resp) {
             .then(resp.redirect("/"))  
             .catch(error => console.log(error));              
     });
+
+app.delete('/recipes/:id', function(req, resp) {
+    recipeDAO.remove(req.params.id)
+    .then(() => resp.status(200).end())
+    .catch(error => console.log(error));
+
+    });    
 }

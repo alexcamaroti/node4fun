@@ -4,7 +4,7 @@ tbRecipes.addEventListener('click', (event) => {
 
     if(elementClicked.dataset.type == 'remove') {
         let recipeId = elementClicked.dataset.href;
-        fetch(`http:/localhost:3000/recipes/${recipeId}`, { method: 'DELETE'})
+        fetch(`http://localhost:3000/recipes/${recipeId}`, { method: 'DELETE'})
         .then(response => {
             let tr = elementClicked.closest(`#recipe_${recipeId}`);
             tr.remove(); 

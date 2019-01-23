@@ -73,7 +73,7 @@ class RecipeDAO {
                     console.log(err);
                     reject("It was not possible to remove the specified item.");
                 }
-                result();
+                resolve();
             });
         })
     }
