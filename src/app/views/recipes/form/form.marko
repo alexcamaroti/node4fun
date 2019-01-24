@@ -6,10 +6,13 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Form Recipe</title>
 	<form action="/recipes" method="post">
-		<input type="hidden" id="id" name="id" />
-		<input type="text" id="name" name="name" placeholder="Name" />
-		<input type="number" id="price" name="price" placeholder="Price" />
-		<input type="text" id="description" name="description" placeholder="Description" />
+		<div if(data.recipe.id)>
+			<input type="hidden" name="_method" value="PUT">
+			<input type="hidden" id="id" name="id" value="${data.recipe.id}" />
+		</div>
+		<input type="text" id="name" name="name" placeholder="Name" value="${data.recipe.name}" />
+		<input type="number" id="price" name="price" placeholder="Price" value="${data.recipe.price}" />
+		<input type="text" id="description" name="description" placeholder="Description" value="${data.recipe.description}" />
 		<button type="submit">Save</button>
 	</form>
 </head>

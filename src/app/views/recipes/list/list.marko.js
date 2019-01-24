@@ -11,6 +11,7 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
     component_globals_tag = marko_loadTag(require("marko/src/components/taglib/component-globals-tag")),
     marko_forEach = marko_helpers.f,
     marko_escapeXml = marko_helpers.x,
+    marko_attr = marko_helpers.a,
     init_components_tag = marko_loadTag(require("marko/src/components/taglib/init-components-tag")),
     await_reorderer_tag = marko_loadTag(require("marko/src/taglibs/async/await-reorderer-tag"));
 
@@ -21,25 +22,33 @@ function render(input, out, __component, component, state) {
 
   component_globals_tag({}, out);
 
-  out.w("<h1>Welcome to Winehouse website.</h1><table><thead><tr><th>Id</th><th>Recipe</th></tr></thead>");
+  out.w("<h1>Welcome to Winehouse website.</h1><table id=\"tbRecipe\"><thead><tr><th>Id</th><th>Recipe</th><th>Price</th><th>Edit</th><th>Delete</th></tr></thead>");
 
-  var for__13 = 0;
+  var for__16 = 0;
 
   marko_forEach(data.recipes, function(recipe) {
-    var keyscope__14 = "[" + ((for__13++) + "]");
+    var keyscope__17 = "[" + ((for__16++) + "]");
 
-    out.w("<tbody><tr><td>" +
+    out.w("<tbody><tr" +
+      marko_attr("id", "recipe_" + recipe.id) +
+      "><td>" +
       marko_escapeXml(recipe.id) +
       "</td><td>" +
       marko_escapeXml(recipe.name) +
-      "</td></tr></tbody>");
+      "</td><td>" +
+      marko_escapeXml(recipe.price) +
+      "</td><td><a" +
+      marko_attr("href", "/recipes/form/" + recipe.id) +
+      ">Edit</a></td><td><a href=\"#\"" +
+      marko_attr("data-href", "" + recipe.id) +
+      " data-type=\"remove\">Delete</a></td></tr></tbody>");
   });
 
-  out.w("</table>");
+  out.w("</table><script src=\"/static/js/remove-recipe.js\"></script>");
 
   init_components_tag({}, out);
 
-  await_reorderer_tag({}, out, __component, "19");
+  await_reorderer_tag({}, out, __component, "28");
 
   out.w("</body></html>");
 }
